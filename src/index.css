@@ -1,13 +1,32 @@
+@font-face {
+  font-family: MJ;
+  src: url(../public/fonts/Mj\ flow.ttf);
+}
 body {
+  direction: rtl;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: MJ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input,
+button {
+  font-family: MJ;
+}
+
+.ltr {
+  direction: ltr;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.ltr input,
+.ltr.input,
+.ltr.button,
+.ltr button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.line {
+  background-color: cornflowerblue;
 }
