@@ -19,14 +19,14 @@ export const TargetCreditCardPage = ({
           <Input
             label="کارت مبدا"
             value={values.source}
-            {...registerInput("source")}
+            {...registerInput("sourceCredit")}
           />
         </div>
         <div className="form-group">
           <Input
             label="کارت مقصد"
             value={values.source}
-            {...registerInput("target")}
+            {...registerInput("targetCredit")}
           />
         </div>
         <div className="form-group">

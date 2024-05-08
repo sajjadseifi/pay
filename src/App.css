@@ -130,3 +130,18 @@
 .re-send {
   background-color: blueviolet;
 }
+
+.factor {
+  display: flex;
+  flex-direction: column;
+}
+
+.factor-title {
+}
+
+.factor-value {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 3px;
+}

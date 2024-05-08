@@ -58,7 +58,7 @@ function App() {
 
   const registerInput = (name) => {
     const onChange = (e) => {
-      handleStepValue(step, e.target.name, e.target.value);
+      handleStepValue(step, name, e.target.value);
     };
 
     const value = stepsForm[step][name];
@@ -107,7 +107,6 @@ function App() {
   }, [step]);
 
   const CurrentStep = steps[step];
-
   return (
     <TransportLayout>
       <CurrentStep
