@@ -2,7 +2,7 @@ import React from "react";
 import { StepVariant } from "../constants/StepValriants";
 import { FactorRow } from "../components/FactorRow";
 
-export const ReportTransportPage = ({ getStepValue, step }) => {
+export const ReportTransport = ({ getStepValue, step }) => {
   const target = getStepValue(StepVariant.Target);
   return (
     <div>

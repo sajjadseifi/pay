@@ -1,12 +1,12 @@
 import "./App.css";
 import { TransportLayout } from "./layouts/TransportLayout";
-import { SourceCreditCardPage } from "./pages/SourceCreditCardPage";
-import { TargetCreditCardPage } from "./pages/TargetCreditCardPage";
-import { ReportTransportPage } from "./pages/ReportTransportPage";
 import { useEffect, useState } from "react";
 import { StepVariant } from "./constants/StepValriants";
+import { TargetCredit } from "./features/TargetCredit";
+import { SourceCredit } from "./features/SourceCredit";
+import { ReportTransport } from "./features/ReportTransport";
 
-const steps = [TargetCreditCardPage, SourceCreditCardPage, ReportTransportPage];
+const steps = [TargetCredit, SourceCredit, ReportTransport];
 
 function App() {
   const [stepsForm, setStepsForm] = useState([
@@ -17,25 +17,13 @@ function App() {
   const [step, setStep] = useState(0);
 
   const onNextStep = () => {
+    // Q1 پیاده سازی تابع حرکت به صفحه بعدی
     if (step < steps.length - 1) setStep((s) => s + 1);
   };
 
   const onPrevStep = () => {
+    // Q2 پیاده سازی تابع حرکت به صفحه قبلی
     if (step > 0) setStep((s) => s - 1);
-  };
-
-  const handleChange = (name) => (e) => {
-    setStepsForm((prevState) => {
-      return prevState.map((form, index) => {
-        if (step === index) {
-          return {
-            ...form,
-            [name]: e.target.value,
-          };
-        }
-        return form;
-      });
-    });
   };
 
   const getStepValue = (step) => {
@@ -43,6 +31,7 @@ function App() {
   };
 
   const handleStepValue = (step, name, value) => {
+    // Q4 نوشتن بروزرسانی یک مقدار در استیت در هر فرم
     setStepsForm((prevState) => {
       return prevState.map((form, index) => {
         if (step === index) {
@@ -57,6 +46,7 @@ function App() {
   };
 
   const registerInput = (name) => {
+    // پیاده سازی تابع مدیریت یک فیلد رشته ای با استفاده از تابع handleStepValue
     const onChange = (e) => {
       handleStepValue(step, name, e.target.value);
     };
@@ -71,6 +61,7 @@ function App() {
   const generateDynamicPassword = () => "123321";
 
   useEffect(() => {
+    // پس از کلیک شدن بر روی دکمه بازیابی رمز مجدد اتومایتک یک رمز بر روی فیلد ست میشود
     if (
       step === StepVariant.Source &&
       !stepsForm[StepVariant.Source]?.dynamicPassword &&
@@ -80,7 +71,9 @@ function App() {
       handleStepValue(step, "dynamicPassword", dp);
     }
   }, [stepsForm, step]);
+
   useEffect(() => {
+    // یک سوال برای مدیریت تایمر رمز یک بار مصرف
     if (step === StepVariant.Source) {
       const timerInterval = setInterval(() => {
         setStepsForm((prevState) => {

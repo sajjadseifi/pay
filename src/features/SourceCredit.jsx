@@ -3,7 +3,7 @@ import { Input } from "../components/Input";
 import { BackButton } from "../components/BackButton";
 import { StepVariant } from "../constants/StepValriants";
 
-export const SourceCreditCardPage = ({
+export const SourceCredit = ({
   handleValue,
   getStepValue,
   registerInput,

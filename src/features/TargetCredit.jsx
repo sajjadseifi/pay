@@ -1,9 +1,8 @@
 import React from "react";
 import { Input } from "../components/Input";
-import { BackButton } from "../components/BackButton";
 import { StepVariant } from "../constants/StepValriants";
 
-export const TargetCreditCardPage = ({
+export const TargetCredit = ({
   handleValue,
   getStepValue,
   registerInput,
